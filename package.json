@@ -1,8 +1,9 @@
 {
   "name": "react-preloader-tmnt",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Preloader components that you can use while your app is in loading state",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",

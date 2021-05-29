@@ -11,12 +11,12 @@ export default [
         output:[
             {
                 file: 'dist/index.js',
-                format:'cjs'
+                format:'cjs',
             },
             {
                 file: 'dist/index.es.js',
                 format: 'es',
-                exports:'named'
+                exports:'named',
             }
         ],
         plugins: [
@@ -33,7 +33,7 @@ export default [
             stripPropTypes({
                 sourceMap:true
             }),
-            terser()
+            // terser()
         ]
     }
 ]
