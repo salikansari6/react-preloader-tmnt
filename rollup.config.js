@@ -3,6 +3,7 @@ import resolve from '@rollup/plugin-node-resolve'
 import external from 'rollup-plugin-peer-deps-external'
 import stripPropTypes from 'rollup-plugin-strip-prop-types'
 import postcss from 'rollup-plugin-postcss'
+import {terser} from 'rollup-plugin-terser'
 
 export default [
     {
@@ -19,7 +20,10 @@ export default [
             }
         ],
         plugins: [
-            postcss(),
+            postcss({
+                plugins:[],
+                minimize:true
+            }),
             babel({
                 exclude:'node_modules/**',
                 presets: ['@babel/preset-react']
@@ -28,7 +32,8 @@ export default [
             resolve(),
             stripPropTypes({
                 sourceMap:true
-            })
+            }),
+            terser()
         ]
     }
 ]
