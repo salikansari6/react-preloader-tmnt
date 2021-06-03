@@ -10,5 +10,28 @@ export const PreloadMessage = ({
   message,
   alignIndicator,
 }) => {
-  return <div>PreloadMessage</div>;
+  if (loading) {
+    return (
+      <div
+        style={{
+          flex: `${alignIndicator}`,
+          color: `${color}`,
+          fontSize: `${fontSize}`,
+        }}
+      >
+        <div>{message}</div>
+        <p>{loaderType}</p>
+        <p>preloader message</p>
+      </div>
+    );
+  } else return null;
+};
+
+PreloadMessage.propTypes = {
+  fontSize: PropTypes.Number,
+  loading: PropTypes.bool,
+  loaderType: PropTypes.String,
+  color: PropTypes.Color,
+  message: PropTypes.String,
+  alignIndicator: PropTypes.String,
 };

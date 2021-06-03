@@ -9,3 +9,7 @@ export default {
 const Template = (args) => <PreloadMessage {...args} />;
 
 export const Default = Template.bind({});
+Default.args = {
+  loading: true,
+  loaderType: "spinner",
+};
