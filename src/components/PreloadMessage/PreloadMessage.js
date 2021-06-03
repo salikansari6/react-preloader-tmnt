@@ -8,6 +8,7 @@ export const PreloadMessage = ({
   loaderType,
   color,
   message,
+  alignIndicator,
 }) => {
   return <div>PreloadMessage</div>;
 };
