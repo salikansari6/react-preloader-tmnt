@@ -1,6 +1,7 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 import "./PreloadMessage.css";
+import { align } from "../../../helpers/align";
 
 export const PreloadMessage = ({
   fontSize,
@@ -14,14 +15,15 @@ export const PreloadMessage = ({
     return (
       <div
         style={{
-          flex: `${alignIndicator}`,
+          display: "flex",
+          flexDirection: `${align(alignIndicator)}`,
           color: `${color}`,
           fontSize: `${fontSize}`,
         }}
       >
+        <div>{loaderType}</div>
         <div>{message}</div>
-        <p>{loaderType}</p>
-        <p>preloader message</p>
+        {/* <p>preloader message</p> */}
       </div>
     );
   } else return null;
