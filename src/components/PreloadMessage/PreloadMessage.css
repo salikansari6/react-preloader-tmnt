@@ -1,0 +1,19 @@
+.loader-indicator-msg {
+  height: 16px;
+  width: 16px;
+  border: calc(16px / 3) solid #f3f3f3;
+  border-top: calc(16px / 3) solid #3498db;
+  border-radius: 50%;
+
+  animation: spin 2s linear infinite;
+}
+
+.preload-msg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message {
+  margin: 0.5rem;
+}

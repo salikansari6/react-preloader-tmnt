@@ -4,7 +4,7 @@ export function align(position) {
       return "row-reverse";
     case "top":
       return "column";
-    case "down":
+    case "bottom":
       return "column-reverse";
     default:
       return "row";

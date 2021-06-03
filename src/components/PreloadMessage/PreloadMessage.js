@@ -11,18 +11,33 @@ export const PreloadMessage = ({
   message,
   alignIndicator,
 }) => {
+  let loaderStyles = {};
+  if (fontSize) {
+    loaderStyles = {
+      height: `${fontSize}px`,
+      width: `${fontSize}px`,
+      borderWidth: `${fontSize / 3}px`,
+      borderTopWidth: `${fontSize / 3}px`,
+    };
+  }
+
   if (loading) {
     return (
       <div
+        className="preload-msg"
         style={{
-          display: "flex",
           flexDirection: `${align(alignIndicator)}`,
-          color: `${color}`,
-          fontSize: `${fontSize}`,
+          fontSize: `${fontSize}px`,
         }}
       >
-        <div>{loaderType}</div>
-        <div>{message}</div>
+        <div
+          class="loader-indicator-msg"
+          style={{
+            borderTopColor: color,
+            ...loaderStyles,
+          }}
+        ></div>
+        <div className="message">{message}</div>
         {/* <p>preloader message</p> */}
       </div>
     );
@@ -30,7 +45,7 @@ export const PreloadMessage = ({
 };
 
 PreloadMessage.propTypes = {
-  fontSize: PropTypes.Number,
+  fontSize: PropTypes.number,
   loading: PropTypes.bool,
   loaderType: PropTypes.String,
   color: PropTypes.Color,
