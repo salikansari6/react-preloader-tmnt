@@ -46,7 +46,7 @@ export const Preloader = ({
       case "bounce":
         return (
           <PreloaderWrapper>
-            <div class="bounce" style={{ color }}></div>
+            <div class="bounce" style={{ background:color }}></div>
           </PreloaderWrapper>
         );
       default:
