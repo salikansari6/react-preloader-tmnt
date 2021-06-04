@@ -1,17 +1,17 @@
-import React from 'react'
-import { Preloader } from '../components/Preloader'
-
+import React from "react";
+import { Preloader } from "../components/Preloader";
 
 export default {
-    title: 'Components/Preloader',
-    component: Preloader,
-  }
+  title: "Components/Preloader",
+  component: Preloader,
+};
 
+const Template = (args) => <Preloader {...args} />;
 
-const Template = args => <Preloader {...args}/>
-
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 Default.args = {
   loading: true,
-  loaderType:'spinner'
-}
+  loaderType: "spinner",
+  message: "Logging In",
+  // fontSize: 16,
+};
