@@ -1,7 +1,7 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 import "./PreloadMessage.css";
-import { align } from "../../../helpers/align";
+import { align } from '../../helpers/align';
 
 export const PreloadMessage = ({
   fontSize,
@@ -38,7 +38,6 @@ export const PreloadMessage = ({
           }}
         ></div>
         <div className="message">{message}</div>
-        {/* <p>preloader message</p> */}
       </div>
     );
   } else return null;
