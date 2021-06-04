@@ -6,7 +6,6 @@ import { align } from '../../helpers/align';
 export const PreloadMessage = ({
   fontSize,
   loading,
-  loaderType,
   color,
   message,
   alignIndicator,
@@ -46,7 +45,6 @@ export const PreloadMessage = ({
 PreloadMessage.propTypes = {
   fontSize: PropTypes.number,
   loading: PropTypes.bool,
-  loaderType: PropTypes.String,
   color: PropTypes.Color,
   message: PropTypes.String,
   alignIndicator: PropTypes.String,
