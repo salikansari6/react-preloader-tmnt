@@ -39,11 +39,13 @@ export const PreloadMessage = ({
         <div className="message">{message}</div>
       </div>
     );
-  } else return null;
+  } else {
+    return null;
+  }
 };
 
 PreloadMessage.propTypes = {
-  fontSize: PropTypes.number,
+  fontSize: PropTypes.Number,
   loading: PropTypes.bool,
   color: PropTypes.Color,
   message: PropTypes.String,

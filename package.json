@@ -1,6 +1,6 @@
 {
   "name": "react-preloader-tmnt",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Preloader components that you can use while your app is in loading state",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -26,6 +26,7 @@
   "devDependencies": {
     "@babel/core": "^7.14.3",
     "@babel/preset-react": "^7.13.13",
+    "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-essentials": "^6.2.9",
@@ -38,7 +39,6 @@
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.0",
-    "rollup-plugin-strip-prop-types": "^1.0.3",
     "rollup-plugin-terser": "^7.0.2"
   },
   "peerDependencies": {
