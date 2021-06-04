@@ -11,7 +11,7 @@ const Template = (args) => <Preloader {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   loading: true,
-  loaderType: "spinner",
+  loaderType: "bounce",
   message: "Logging In",
   // fontSize: 16,
 };

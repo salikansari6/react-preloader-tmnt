@@ -43,6 +43,12 @@ export const Preloader = ({
             <div class="dots" style={{ color: color }}></div>
           </PreloaderWrapper>
         );
+      case "bounce":
+        return (
+          <PreloaderWrapper>
+            <div class="bounce" style={{ color }}></div>
+          </PreloaderWrapper>
+        );
       default:
         return (
           <PreloaderWrapper>
