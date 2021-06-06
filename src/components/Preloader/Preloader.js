@@ -46,7 +46,7 @@ export const Preloader = ({
       case "bounce":
         return (
           <PreloaderWrapper>
-            <div class="bounce" style={{ background:color }}></div>
+            <div class="bounce" style={{ background: color }}></div>
           </PreloaderWrapper>
         );
       default:
@@ -71,9 +71,9 @@ export const Preloader = ({
 
 Preloader.propTypes = {
   loading: PropTypes.bool,
-  image: PropTypes.String,
-  color: PropTypes.Color,
-  spinnerSize: PropTypes.Number,
-  imageSize: PropTypes.Number,
-  loaderType: PropTypes.String,
+  image: PropTypes.string,
+  color: PropTypes.color,
+  spinnerSize: PropTypes.number,
+  imageSize: PropTypes.number,
+  loaderType: PropTypes.string,
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 import "./PreloadMessage.css";
-import { align } from '../../helpers/align';
+import { align } from "../../helpers/align";
 
 export const PreloadMessage = ({
   fontSize,
@@ -45,9 +45,9 @@ export const PreloadMessage = ({
 };
 
 PreloadMessage.propTypes = {
-  fontSize: PropTypes.Number,
+  fontSize: PropTypes.number,
   loading: PropTypes.bool,
-  color: PropTypes.Color,
-  message: PropTypes.String,
-  alignIndicator: PropTypes.String,
+  color: PropTypes.color,
+  message: PropTypes.string,
+  alignIndicator: PropTypes.string,
 };
