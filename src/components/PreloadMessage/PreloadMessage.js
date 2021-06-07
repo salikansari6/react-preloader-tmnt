@@ -47,7 +47,7 @@ export const PreloadMessage = ({
 PreloadMessage.propTypes = {
   fontSize: PropTypes.number,
   loading: PropTypes.bool,
-  color: PropTypes.Color,
+  color: PropTypes.string,
   message: PropTypes.string,
   alignIndicator: PropTypes.string,
 };
