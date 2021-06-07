@@ -72,7 +72,7 @@ export const Preloader = ({
 Preloader.propTypes = {
   loading: PropTypes.bool,
   image: PropTypes.string,
-  color: PropTypes.Color,
+  color: PropTypes.string,
   spinnerSize: PropTypes.number,
   imageSize: PropTypes.number,
   loaderType: PropTypes.string,
