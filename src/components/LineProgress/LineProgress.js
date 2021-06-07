@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import "./LineProgress.css";
 import { PropTypes } from "prop-types";
 
-export const LineProgress = ({ loading }) => {
+export const LineProgress = ({ loading, color }) => {
   const progressRef = useRef();
   const [progress, setProgress] = useState(0);
 
@@ -34,6 +34,8 @@ export const LineProgress = ({ loading }) => {
       className="line-progress"
       style={{
         width: `${progress}vw`,
+        background: color,
+        boxShadow: `0px 1px 5px ${color}`,
       }}
     ></div>
   );
@@ -41,4 +43,5 @@ export const LineProgress = ({ loading }) => {
 
 LineProgress.propTypes = {
   loading: PropTypes.bool,
+  color: PropTypes.string,
 };
