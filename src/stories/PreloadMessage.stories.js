@@ -12,4 +12,6 @@ export const Default = Template.bind({});
 Default.args = {
   loading: true,
   message: "Logging In",
+  loaderType: "spinner",
+  // fontSize: "16",
 };

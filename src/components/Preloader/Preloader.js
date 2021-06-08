@@ -1,6 +1,9 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 import "./Preloader.css";
+import { Spinner } from "../Loaders/Spinner";
+import { Dots } from "../Loaders/Dots";
+import { Bounce } from "../Loaders/Bounce";
 
 const PreloaderWrapper = ({ children }) => {
   return <div className="preloader">{children}</div>;
@@ -11,7 +14,7 @@ export const Preloader = ({
   image,
   loaderType,
   color,
-  spinnerSize,
+  size,
   imageSize,
 }) => {
   if (loading) {
@@ -23,43 +26,45 @@ export const Preloader = ({
       );
     }
 
+    let dimensions = {};
+    if (size) {
+      dimensions = {
+        height: `${size}px`,
+        width: `${size}px`,
+      };
+    }
+
     switch (loaderType) {
       case "spinner":
+        if (size) {
+          //extra config for spinner as it has border width
+          dimensions = {
+            ...dimensions,
+            borderWidth: `${(size || 16) / 3}px`,
+            borderTopWidth: `${(size || 16) / 3}px`,
+          };
+        }
         return (
           <PreloaderWrapper>
-            <div
-              class="loader-indicator"
-              style={{
-                borderTopColor: color,
-                height: `${spinnerSize}px`,
-                width: `${spinnerSize}px`,
-              }}
-            ></div>
+            <Spinner color={color} dimensions={dimensions} />
           </PreloaderWrapper>
         );
       case "dots":
         return (
           <PreloaderWrapper>
-            <div class="dots" style={{ color: color }}></div>
+            <Dots color={color} size={size} />
           </PreloaderWrapper>
         );
       case "bounce":
         return (
           <PreloaderWrapper>
-            <div class="bounce" style={{ background: color }}></div>
+            <Bounce color={color} />
           </PreloaderWrapper>
         );
       default:
         return (
           <PreloaderWrapper>
-            <div
-              class="loader-indicator"
-              style={{
-                borderTopColor: color,
-                height: `${spinnerSize}px`,
-                width: `${spinnerSize}px`,
-              }}
-            ></div>
+            <Spinner color={color} dimensions={dimensions} />
           </PreloaderWrapper>
         );
       //Add more variations
@@ -73,7 +78,7 @@ Preloader.propTypes = {
   loading: PropTypes.bool,
   image: PropTypes.string,
   color: PropTypes.Color,
-  spinnerSize: PropTypes.number,
+  size: PropTypes.number,
   imageSize: PropTypes.number,
   loaderType: PropTypes.string,
 };

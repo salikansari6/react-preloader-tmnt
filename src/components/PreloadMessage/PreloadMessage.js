@@ -2,6 +2,8 @@ import React from "react";
 import { PropTypes } from "prop-types";
 import "./PreloadMessage.css";
 import { align } from "../../helpers/align";
+import { Spinner } from "../Loaders/Spinner";
+import { Dots } from "../Loaders/Dots";
 
 export const PreloadMessage = ({
   fontSize,
@@ -9,14 +11,31 @@ export const PreloadMessage = ({
   color,
   message,
   alignIndicator,
+  loaderType,
 }) => {
-  let loaderStyles = {};
+  //helper function for choice between loaders
+  const renderLoaders = (loaderType, color, dimensions) => {
+    switch (loaderType) {
+      case "dots":
+        return <Dots color={color} dimensions={dimensions} />;
+      default:
+        dimensions = {
+          ...dimensions,
+          borderWidth: `${(fontSize || 16) / 3}px`,
+          borderTopWidth: `${(fontSize || 16) / 3}px`,
+        };
+        return <Spinner color={color} dimensions={dimensions} />;
+    }
+  };
+
+  let dimensions = {
+    height: "1rem",
+    width: "1rem",
+  };
   if (fontSize) {
-    loaderStyles = {
+    dimensions = {
       height: `${fontSize}px`,
       width: `${fontSize}px`,
-      borderWidth: `${fontSize / 3}px`,
-      borderTopWidth: `${fontSize / 3}px`,
     };
   }
 
@@ -29,13 +48,7 @@ export const PreloadMessage = ({
           fontSize: `${fontSize}px`,
         }}
       >
-        <div
-          class="loader-indicator-msg"
-          style={{
-            borderTopColor: color,
-            ...loaderStyles,
-          }}
-        ></div>
+        {renderLoaders(loaderType, color, dimensions)}
         <div className="message">{message}</div>
       </div>
     );
@@ -50,4 +63,5 @@ PreloadMessage.propTypes = {
   color: PropTypes.Color,
   message: PropTypes.string,
   alignIndicator: PropTypes.string,
+  loaderType: PropTypes.string,
 };

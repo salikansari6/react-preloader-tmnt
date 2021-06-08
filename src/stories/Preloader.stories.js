@@ -1,4 +1,5 @@
 import React from "react";
+import { Spinner } from "../components/Loaders/Spinner";
 import { Preloader } from "../components/Preloader";
 
 export default {
