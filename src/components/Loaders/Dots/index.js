@@ -1,15 +1,13 @@
 import React from "react";
 import "./Dots.css";
 
-export const Dots = ({ color, size, dimensions }) => {
+export const Dots = ({ color, dimensions }) => {
   return (
     <div style={{ display: "flex" }}>
       <div
         className="dots"
         style={{
           background: color,
-          height: size / 2,
-          width: size / 2,
           ...dimensions,
         }}
       ></div>
@@ -17,8 +15,6 @@ export const Dots = ({ color, size, dimensions }) => {
         className="dots"
         style={{
           background: color,
-          height: size / 2,
-          width: size / 2,
           ...dimensions,
         }}
       ></div>
@@ -26,8 +22,6 @@ export const Dots = ({ color, size, dimensions }) => {
         className="dots"
         style={{
           background: color,
-          height: size / 2,
-          width: size / 2,
           ...dimensions,
         }}
       ></div>
