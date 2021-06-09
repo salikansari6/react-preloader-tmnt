@@ -35,42 +35,6 @@ export const Preloader = ({
     return (
       <PreloaderWrapper>{loaderType({ color, dimensions })}</PreloaderWrapper>
     );
-
-    // switch (loaderType) {
-    //   case "spinner":
-    //     if (size) {
-    //       //extra config for spinner as it has border width
-    //       dimensions = {
-    //         ...dimensions,
-    //         borderWidth: `${(size || 16) / 3}px`,
-    //         borderTopWidth: `${(size || 16) / 3}px`,
-    //       };
-    //     }
-    //     return (
-    //       <PreloaderWrapper>
-    //         <Spinner color={color} dimensions={dimensions} />
-    //       </PreloaderWrapper>
-    //     );
-    //   case "dots":
-    //     return (
-    //       <PreloaderWrapper>
-    //         <Dots color={color} size={size} />
-    //       </PreloaderWrapper>
-    //     );
-    //   case "bounce":
-    //     return (
-    //       <PreloaderWrapper>
-    //         <Bounce color={color} />
-    //       </PreloaderWrapper>
-    //     );
-    //   default:
-    //     return (
-    //       <PreloaderWrapper>
-    //         <Spinner color={color} dimensions={dimensions} />
-    //       </PreloaderWrapper>
-    //     );
-    //   //Add more variations
-    // }
   } else {
     return null;
   }
