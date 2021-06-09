@@ -3,7 +3,6 @@ import { PropTypes } from "prop-types";
 import "./PreloadMessage.css";
 import { align } from "../../helpers/align";
 import { Spinner } from "../Loaders/Spinner";
-import { Dots } from "../Loaders/Dots";
 
 export const PreloadMessage = ({
   fontSize,
@@ -11,23 +10,8 @@ export const PreloadMessage = ({
   color,
   message,
   alignIndicator,
-  loaderType,
+  loaderType = Spinner,
 }) => {
-  //helper function for choice between loaders
-  const renderLoaders = (loaderType, color, dimensions) => {
-    switch (loaderType) {
-      case "dots":
-        return <Dots color={color} dimensions={dimensions} />;
-      default:
-        dimensions = {
-          ...dimensions,
-          borderWidth: `${(fontSize || 16) / 3}px`,
-          borderTopWidth: `${(fontSize || 16) / 3}px`,
-        };
-        return <Spinner color={color} dimensions={dimensions} />;
-    }
-  };
-
   let dimensions = {
     height: "1rem",
     width: "1rem",
@@ -48,7 +32,7 @@ export const PreloadMessage = ({
           fontSize: `${fontSize}px`,
         }}
       >
-        {renderLoaders(loaderType, color, dimensions)}
+        {loaderType({ color, dimensions })}
         <div className="message">{message}</div>
       </div>
     );
@@ -63,5 +47,5 @@ PreloadMessage.propTypes = {
   color: PropTypes.Color,
   message: PropTypes.string,
   alignIndicator: PropTypes.string,
-  loaderType: PropTypes.string,
+  loaderType: PropTypes.node,
 };

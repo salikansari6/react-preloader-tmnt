@@ -9,6 +9,7 @@ export const Spinner = ({ color, size, dimensions }) => {
         borderTopColor: color,
         // height: `${size}px`,
         // width: `${size}px`,
+
         ...dimensions,
       }}
     ></div>
