@@ -1,0 +1,17 @@
+.line-progress {
+  width: 0;
+  height: 3px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: red;
+  box-shadow: 0 1px 5px red;
+  /* transform: translateX(-100%); */
+  transition: all 0.5s;
+}
+
+/* @keyframes progress {
+  100% {
+    transform: translateX(0);
+  }
+} */
