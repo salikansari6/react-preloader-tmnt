@@ -1,6 +1,7 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 import "./Preloader.css";
+import { Spinner } from "../Loaders/Spinner";
 
 const PreloaderWrapper = ({ children }) => {
   return <div className="preloader">{children}</div>;
@@ -9,7 +10,7 @@ const PreloaderWrapper = ({ children }) => {
 export const Preloader = ({
   loading,
   image,
-  loaderType,
+  loaderType = Spinner,
   color,
   size,
   imageSize,
