@@ -2,6 +2,7 @@ import React from "react";
 import { PropTypes } from "prop-types";
 import "./PreloadMessage.css";
 import { align } from "../../helpers/align";
+import { Spinner } from "../Loaders/Spinner";
 
 export const PreloadMessage = ({
   fontSize,
@@ -9,14 +10,16 @@ export const PreloadMessage = ({
   color,
   message,
   alignIndicator,
+  loaderType = Spinner,
 }) => {
-  let loaderStyles = {};
+  let dimensions = {
+    height: "1rem",
+    width: "1rem",
+  };
   if (fontSize) {
-    loaderStyles = {
+    dimensions = {
       height: `${fontSize}px`,
       width: `${fontSize}px`,
-      borderWidth: `${fontSize / 3}px`,
-      borderTopWidth: `${fontSize / 3}px`,
     };
   }
 
@@ -29,13 +32,7 @@ export const PreloadMessage = ({
           fontSize: `${fontSize}px`,
         }}
       >
-        <div
-          class="loader-indicator-msg"
-          style={{
-            borderTopColor: color,
-            ...loaderStyles,
-          }}
-        ></div>
+        {loaderType({ color, dimensions })}
         <div className="message">{message}</div>
       </div>
     );
@@ -50,4 +47,5 @@ PreloadMessage.propTypes = {
   color: PropTypes.string,
   message: PropTypes.string,
   alignIndicator: PropTypes.string,
+  loaderType: PropTypes.node,
 };
