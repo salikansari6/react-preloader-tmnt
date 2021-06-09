@@ -1,0 +1,31 @@
+.bounce {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: red;
+  /* position: absolute; */
+  /* top: 50px; */
+  animation: bouncy 0.9s infinite;
+}
+@keyframes bouncy {
+  10% {
+    height: 50px;
+    widht: 50px;
+  }
+  30% {
+    height: 50px;
+    width: 40px;
+  }
+  50% {
+    height: 30px;
+    width: 57px;
+    transform: translateY(200px);
+  }
+  75% {
+    height: 50px;
+    width: 57px;
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

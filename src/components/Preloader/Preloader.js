@@ -1,6 +1,7 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 import "./Preloader.css";
+import { Spinner } from "../Loaders/Spinner";
 
 const PreloaderWrapper = ({ children }) => {
   return <div className="preloader">{children}</div>;
@@ -9,9 +10,9 @@ const PreloaderWrapper = ({ children }) => {
 export const Preloader = ({
   loading,
   image,
-  loaderType,
+  loaderType = Spinner,
   color,
-  spinnerSize,
+  size,
   imageSize,
 }) => {
   if (loading) {
@@ -23,47 +24,17 @@ export const Preloader = ({
       );
     }
 
-    switch (loaderType) {
-      case "spinner":
-        return (
-          <PreloaderWrapper>
-            <div
-              class="loader-indicator"
-              style={{
-                borderTopColor: color,
-                height: `${spinnerSize}px`,
-                width: `${spinnerSize}px`,
-              }}
-            ></div>
-          </PreloaderWrapper>
-        );
-      case "dots":
-        return (
-          <PreloaderWrapper>
-            <div class="dots" style={{ color: color }}></div>
-          </PreloaderWrapper>
-        );
-      case "bounce":
-        return (
-          <PreloaderWrapper>
-            <div class="bounce" style={{ background: color }}></div>
-          </PreloaderWrapper>
-        );
-      default:
-        return (
-          <PreloaderWrapper>
-            <div
-              class="loader-indicator"
-              style={{
-                borderTopColor: color,
-                height: `${spinnerSize}px`,
-                width: `${spinnerSize}px`,
-              }}
-            ></div>
-          </PreloaderWrapper>
-        );
-      //Add more variations
+    let dimensions = {};
+    if (size) {
+      dimensions = {
+        height: `${size}px`,
+        width: `${size}px`,
+      };
     }
+
+    return (
+      <PreloaderWrapper>{loaderType({ color, dimensions })}</PreloaderWrapper>
+    );
   } else {
     return null;
   }
@@ -72,8 +43,8 @@ export const Preloader = ({
 Preloader.propTypes = {
   loading: PropTypes.bool,
   image: PropTypes.string,
+  size: PropTypes.number,
   color: PropTypes.string,
-  spinnerSize: PropTypes.number,
   imageSize: PropTypes.number,
-  loaderType: PropTypes.string,
+  loaderType: PropTypes.node,
 };
