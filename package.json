@@ -1,6 +1,6 @@
 {
   "name": "react-preloader-tmnt",
-  "version": "1.1.3",
+  "version": "2.0.1",
   "description": "Preloader components that you can use while your app is in loading state",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
